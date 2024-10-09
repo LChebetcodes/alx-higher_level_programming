@@ -1,3 +1,3 @@
 #!/usr/bin/python3
-class Rectangle:
-    pass
+class Rectangle:    #Class named Rectangle
+        pass        #The class is empty
