@@ -1,39 +1,151 @@
->>> from add_integer import add_integer
-	Test integer: 
-	>>> add_integer(True, 1)
-	Traceback (most recent call last):
-	...
-	TypeError: a must be an integer
+# 0-add_integer.txt
+==========================
+ How to Use add_integer.py
+==========================
 
-Test boolean with number:
-	>>> add_integer(True, 1)
-	Traceback (most recent call last):
-	...
-	TypeError: a must be an integer
-	>>> add_integer(1, True)
-	Traceback (most recent call last):
-        ...
-        TypeError: b must be an integer
+This module defines an integer function ``add_integer(a, b=98)``.
 
-Test more than two arguments:
-	>>> add_integer(1, 2, 3)
-        Traceback (most recent call last):
-        ...
-        TypeError: add_integer() takes from 1 to 2 positional arguments but 3 were given
+add_integer()
+=============
 
-Test float('nan') in python (not a number):
-	>>> add_integer(1, float('nan'))
-	Traceback (most recent call last):
-	...
-	ValueError: cannot convert float NaN to integer
+The function ``add_integer()`` adds two integers (or floats) together.
+If either argument is a float, it will be cast to an integer before performing the addition.
 
-Test max or min numbers python can handle:
-	>>> add_integer(float('inf'))
-	Traceback (most recent call last0:
-	...
-	OverflowError: cannot convert float infinity to integer
-	>>> add_integer(float('-inf'))
-	Traceback (most recent call last0:
-	...
-	OverflowError: cannot convert float infinity to intege
+Basic Usage
+===========
 
+The function works with integer inputs. It adds two integers.
+
+::
+    
+    >>>	add_integer = __import__('0-add_integer').add_integer
+    >>> add_integer(2, 3)
+    5
+
+The function also works when one argument is a float. Floats are automatically converted to integers.
+
+::
+
+    >>> add_integer(2.5, 3)
+    5
+
+    >>> add_integer(2, 3.5)
+    5
+
+Default Value
+=============
+
+The function has a default value of ``98`` for the second argument, which is used if no value is provided.
+
+::
+
+    >>> add_integer(10)
+    108
+
+Non-Numbers
+============
+
+The function raises a ``TypeError`` if either argument is not an integer or float.
+
+::
+
+    >>> add_integer("two", 3)
+    Traceback (most recent call last):
+    ...
+    TypeError: a must be an integer
+
+    >>> add_integer(3, "four")
+    Traceback (most recent call last):
+    ...
+    TypeError: b must be an integer
+
+Edge Cases
+==========
+
+You can also handle edge cases with large numbers, zero, or invalid input.
+
+Adding zero
+-----------
+
+::
+
+    >>> add_integer(0, 0)
+    0
+
+    >>> add_integer(5, 0)
+    5
+
+    >>> add_integer(0, 5)
+    5
+
+Large Numbers
+-------------
+
+::
+
+    >>> add_integer(1000000000000, 1000000000000)
+    2000000000000
+
+    >>> add_integer(-1000000000000, 1000000000000)
+    0
+
+Negative Numbers
+----------------
+
+::
+
+    >>> add_integer(-5, -3)
+    -8
+
+    >>> add_integer(-5, 5)
+    0
+
+NaN (Not a Number)
+-------------------
+
+If either argument is ``NaN``, the function should raise a ``TypeError``.
+
+::
+
+    >>> add_integer(float('nan'), 3)
+    Traceback (most recent call last):
+    ...
+    TypeError: a must be an integer
+
+    >>> add_integer(3, float('nan'))
+    Traceback (most recent call last):
+    ...
+    TypeError: b must be an integer
+
+Infinite Values
+---------------
+
+If either argument is infinity, it should raise a ``TypeError``.
+
+::
+
+    >>> add_integer(float('inf'), 3)
+    Traceback (most recent call last):
+    ...
+    TypeError: a must be an integer
+
+    >>> add_integer(3, float('inf'))
+    Traceback (most recent call last):
+    ...
+    TypeError: b must be an integer
+
+Edge Case: Boolean
+------------------
+
+Since ``True`` is a valid integer (1), and ``False`` is 0, we can test adding booleans.
+
+::
+
+    >>> add_integer(True, 1)
+    2
+
+    >>> add_integer(False, 1)
+    1
+
+    >>> add_integer(True, False)
+    1
