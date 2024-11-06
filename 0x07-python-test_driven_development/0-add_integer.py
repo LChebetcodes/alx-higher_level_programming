@@ -2,6 +2,8 @@
 """
 A simple module that adds two integers.
 """
+
+
 def add_integer(a, b=98):
     """Function that adds two integers (or floats) together."""
 
