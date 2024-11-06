@@ -12,11 +12,11 @@ def add_integer(a, b=98):
 
     """Check for NaN and infinity before casting to int"""
     if isinstance(a, float):
-        if a != a or a == float('inf') or a == float('-inf'):  # NaN or infinity
+        if a != a or a == float('inf') or a == float('-inf'):
             raise TypeError("a must be an integer")
 
     if isinstance(b, float):
-        if b != b or b == float('inf') or b == float('-inf'):  # NaN or infinity
+        if b != b or b == float('inf') or b == float('-inf'):
             raise TypeError("b must be an integer")
 
     """Cast a and b to integers if they are floats"""
