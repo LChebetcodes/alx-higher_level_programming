@@ -3,7 +3,8 @@
 A simple module that adds two integers.
 """
 
-def add_integer(a, b=98):  
+
+def add_integer(a, b=98):
     """
     Adds two integers or floats (casting floats to integers).
     Args:
