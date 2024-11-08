@@ -139,6 +139,7 @@ Edge Case: Boolean
 
 Since ``True`` is a valid integer (1), and ``False`` is 0, we can test adding booleans.
 
+
 ::
 
     >>> add_integer(True, 1)
