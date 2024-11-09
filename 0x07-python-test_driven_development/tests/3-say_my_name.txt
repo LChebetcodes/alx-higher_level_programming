@@ -1,0 +1,121 @@
+# 3-say_my_name.txt
+===============================
+ How to Use 3-say_my_name.py
+===============================
+
+This library is simple and contains one main function called
+``say_my_name(first_name, last_name="")``.
+
+Name Printing
+=============
+
+``say_my_name()`` prints a message introducing a person by their name.
+The `first_name` parameter is required, while the `last_name` parameter is optional.
+Both parameters must be strings.
+
+Basic Usage
+===========
+
+Here is an example that prints a full name.
+
+::
+
+	>>> say_my_name = __import__('3-say_my_name').say_my_name
+	>>> say_my_name("John", "Doe")
+	My name is John Doe
+
+Only First Name
+===============
+
+You can use the function with only the `first_name` argument.
+
+::
+
+	>>> say_my_name("Alice")
+	My name is Alice
+
+Edge Cases
+==========
+
+The ``first_name`` and ``last_name`` arguments have specific requirements: both must be strings.
+Passing non-string values raises appropriate exceptions.
+
+Empty First Name
+----------------
+
+An empty string as `first_name` still works and prints only the last name (if provided).
+
+::
+
+	>>> say_my_name("", "Smith")
+	My name is  Smith
+
+Empty First and Last Name
+-------------------------
+
+Passing empty strings for both `first_name` and `last_name` results in a minimal output.
+
+::
+
+	>>> say_my_name("", "")
+	My name is 
+
+Non-string First Name
+---------------------
+
+Passing a non-string `first_name` raises a ``TypeError`` exception.
+
+::
+
+	>>> say_my_name(123, "Doe")
+	Traceback (most recent call last):
+	...
+	TypeError: first_name must be a string
+
+Non-string Last Name
+--------------------
+
+Passing a non-string `last_name` raises a ``TypeError`` exception.
+
+::
+
+	>>> say_my_name("John", 456)
+	Traceback (most recent call last):
+	...
+	TypeError: last_name must be a string
+
+Both Non-string Arguments
+-------------------------
+
+Passing non-string values for both `first_name` and `last_name` raises a ``TypeError`` exception.
+
+::
+
+	>>> say_my_name(["Alice"], 789)
+	Traceback (most recent call last):
+	...
+	TypeError: first_name must be a string
+
+None as First Name
+------------------
+
+Passing `None` as `first_name` raises a ``TypeError`` exception.
+
+::
+
+	>>> say_my_name(None, "Smith")
+	Traceback (most recent call last):
+	...
+	TypeError: first_name must be a string
+
+None as Last Name
+-----------------
+
+Passing `None` as `last_name` raises a ``TypeError`` exception.
+
+::
+
+	>>> say_my_name("Alice", None)
+	Traceback (most recent call last):
+	...
+	TypeError: last_name must be a string
