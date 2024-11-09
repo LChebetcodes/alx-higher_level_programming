@@ -20,11 +20,40 @@ Here is an example that prints a 3x3 square.
 
 ::
 
-	>>> print_square = __import__('4-print_square').print_square
-	>>> print_square(3)
-	###
-	###
-	###
+    >>> print_square = __import__('4-print_square').print_square
+    >>> print_square(3)
+    ###
+    ###
+    ###
+
+Examples with Different Sizes
+=============================
+
+Here is an example that prints a 4x4 square.
+
+::
+
+    >>> print_square(4)
+    ####
+    ####
+    ####
+    ####
+
+Here is an example that prints a 10x10 square.
+
+::
+
+    >>> print_square(10)
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
 
 Edge Cases
 ==========
@@ -39,22 +68,33 @@ Passing a non-integer value raises a ``TypeError`` exception.
 
 ::
 
-	>>> print_square(3.5)
-	Traceback (most recent call last):
-	...
-	TypeError: size must be an integer
+    >>> print_square(3.5)
+    Traceback (most recent call last):
+    ...
+    TypeError: size must be an integer
+
+String Input
+------------
+
+Passing a string raises a ``TypeError`` exception.
+
+::
+
+    >>> print_square("3")
+    Traceback (most recent call last):
+    ...
+    TypeError: size must be an integer
 
 Negative Integer Input
 ----------------------
-
 Passing a negative integer raises a ``ValueError`` exception.
 
 ::
 
-	>>> print_square(-3)
-	Traceback (most recent call last):
-	...
-	ValueError: size must be >= 0
+    >>> print_square(-3)
+    Traceback (most recent call last):
+    ...
+    ValueError: size must be >= 0
 
 Zero Size
 ---------
@@ -63,5 +103,14 @@ A size of zero should not print any output, but it does not raise an error.
 
 ::
 
-	>>> print_square(0)
+    >>> print_square(0)
 
+Single Hash Output
+------------------
+
+A size of 1 should print a single ``#`` character.
+
+::
+
+    >>> print_square(1)
+    #
