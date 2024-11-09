@@ -1,0 +1,103 @@
+# 5-text_indentation.txt
+===============================
+
+How to Use 5-text_indentation.py
+===============================
+
+This library is simple and contains one main function called
+``text_indentation(text)``.
+
+Text Indentation
+================
+
+``text_indentation()`` processes a string and prints the text with two new lines
+after each occurrence of the characters `.`, `?`, and `:`.
+
+Basic Usage
+===========
+
+Here is an example that processes the text and inserts new lines after the punctuation.
+
+::
+
+    >>> text_indentation = __import__('5-text_indentation').text_indentation
+    >>> text_indentation("Hello! How are you? I am fine.")
+    Hello!
+    
+    How are you?
+    
+    I am fine.
+
+Edge Cases
+==========
+
+The ``text`` argument has specific requirements. It must be a string.
+Passing invalid types or an empty string raises appropriate exceptions.
+
+Non-string Input
+----------------
+
+Passing a non-string value raises a ``TypeError`` exception.
+
+::
+
+    >>> text_indentation(123)
+    Traceback (most recent call last):
+    ...
+    TypeError: text must be a string
+
+Empty String
+------------
+
+Passing an empty string should print nothing, but it does not raise an error.
+
+::
+
+    >>> text_indentation("")
+    (No output)
+
+Whitespace Handling
+-------------------
+
+If there are spaces after punctuation marks, they should be ignored before starting a new line.
+
+::
+
+    >>> text_indentation("Hello.     World!")
+    Hello.
+    
+    World!
+
+Text Without Punctuation
+-------------------------
+
+If the text doesn't contain any of the specified punctuation marks, the text is printed as is without any indentation.
+
+::
+
+    >>> text_indentation("Hello World")
+    Hello World
+
+Multiple Punctuation Marks Together
+-----------------------------------
+
+If multiple punctuation marks occur together, the function will place a new line after the last punctuation mark.
+
+::
+
+    >>> text_indentation("Hello... How are you?")
+    Hello...
+    
+    How are you?
+
+Multiple Spaces After Punctuation
+----------------------------------
+
+Spaces after punctuation marks should be ignored before the next printed line starts.
+
+::
+
+    >>> text_indentation("Hello.    How are you?")
+    Hello.
+    
+    How are you?
