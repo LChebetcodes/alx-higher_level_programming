@@ -1,0 +1,67 @@
+4-print_square.txt
+===============================
+ How to Use 4-print_square.py
+===============================
+
+This library is simple and contains one main function called
+``print_square(size)``.
+
+Square Printing
+===============
+
+``print_square()`` prints a square made up of the ``#`` character.
+The size of the square is determined by the ``size`` argument, which must
+be a non-negative integer.
+
+Basic Usage
+===========
+
+Here is an example that prints a 3x3 square.
+
+::
+
+	>>> print_square = __import__('4-print_square').print_square
+	>>> print_square(3)
+	###
+	###
+	###
+
+Edge Cases
+==========
+
+The ``size`` argument has specific requirements. It must be a non-negative integer.
+Passing invalid types or negative values raises appropriate exceptions.
+
+Non-integer Input
+-----------------
+
+Passing a non-integer value raises a ``TypeError`` exception.
+
+::
+
+	>>> print_square(3.5)
+	Traceback (most recent call last):
+	...
+	TypeError: size must be an integer
+
+Negative Integer Input
+----------------------
+
+Passing a negative integer raises a ``ValueError`` exception.
+
+::
+
+	>>> print_square(-3)
+	Traceback (most recent call last):
+	...
+	ValueError: size must be >= 0
+
+Zero Size
+---------
+
+A size of zero should not print any output, but it does not raise an error.
+
+::
+
+	>>> print_square(0)
+
