@@ -1,0 +1,134 @@
+# 100-matrix_mul_test.txt
+===============================
+
+How to Use 100-matrix_mul.py
+===============================
+
+This library is simple and contains one main function called
+``matrix_mul(m_a, m_b)``.
+
+Matrix Multiplication
+=====================
+
+``matrix_mul()`` multiplies two matrices ``m_a`` and ``m_b`` provided as input.
+It performs several validations on the input matrices before computing the product.
+
+Basic Usage
+===========
+
+Here is an example that multiplies two matrices:
+
+::
+
+    >>> matrix_mul = __import__('100-matrix_mul').matrix_mul
+    >>> m_a = [[1, 2], [3, 4]]
+    >>> m_b = [[5, 6], [7, 8]]
+    >>> matrix_mul(m_a, m_b)
+    [[19, 22], [43, 50]]
+
+Edge Cases
+==========
+
+The ``m_a`` and ``m_b`` arguments must be lists of lists containing integers or floats.
+
+Non-list Input
+--------------
+
+If ``m_a`` or ``m_b`` is not a list, a ``TypeError`` is raised.
+
+::
+
+    >>> matrix_mul(123, [[1, 2], [3, 4]])
+    Traceback (most recent call last):
+    ...
+    TypeError: m_a must be a list
+
+    >>> matrix_mul([[1, 2], [3, 4]], 123)
+    Traceback (most recent call last):
+    ...
+    TypeError: m_b must be a list
+
+List of Lists Input
+-------------------
+
+If ``m_a`` or ``m_b`` is not a list of lists, a ``TypeError`` is raised.
+
+::
+
+    >>> matrix_mul([1, 2], [[1, 2], [3, 4]])
+    Traceback (most recent call last):
+    ...
+    TypeError: m_a must be a list of lists
+
+    >>> matrix_mul([[1, 2], [3, 4]], [1, 2])
+    Traceback (most recent call last):
+    ...
+    TypeError: m_b must be a list of lists
+
+Empty Matrix
+------------
+
+If either ``m_a`` or ``m_b`` is empty, a ``ValueError`` is raised.
+
+::
+
+    >>> matrix_mul([], [[1, 2], [3, 4]])
+    Traceback (most recent call last):
+    ...
+    ValueError: m_a can't be empty
+
+    >>> matrix_mul([[1, 2], [3, 4]], [])
+    Traceback (most recent call last):
+    ...
+    ValueError: m_b can't be empty
+
+Matrix with Non-Integer or Non-Float Elements
+---------------------------------------------
+
+If a matrix contains elements that are not integers or floats, a ``TypeError`` is raised.
+
+::
+
+    >>> matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 'b']])
+    Traceback (most recent call last):
+    ...
+    TypeError: m_b should contain only integers or floats
+
+Uneven Rows in a Matrix
+------------------------
+
+If the rows of ``m_a`` or ``m_b`` are not of the same size, a ``TypeError`` is raised.
+
+::
+
+    >>> matrix_mul([[1, 2], [3]], [[1, 2], [3, 4]])
+    Traceback (most recent call last):
+    ...
+    TypeError: each row of m_a must be of the same size
+
+    >>> matrix_mul([[1, 2], [3, 4]], [[1, 2], [3]])
+    Traceback (most recent call last):
+    ...
+    TypeError: each row of m_b must be of the same size
+
+Matrix Dimensions for Multiplication
+------------------------------------
+
+If the number of columns in ``m_a`` is not equal to the number of rows in ``m_b``, a ``ValueError`` is raised.
+
+::
+
+    >>> matrix_mul([[1, 2], [3, 4]], [[1, 2]])
+    Traceback (most recent call last):
+    ...
+    ValueError: m_a and m_b can't be multiplied
+
+Matrix Multiplication
+----------------------
+
+If all validations pass, the matrices are multiplied correctly.
+
+::
+
+    >>> matrix_mul([[1, 2], [3, 4]], [[5, 6], [7, 8]])
+    [[19, 22], [43, 50]]
