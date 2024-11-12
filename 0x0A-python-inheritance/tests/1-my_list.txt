@@ -1,0 +1,87 @@
+# 1-MyList_test.txt
+===============================
+
+How to Use 1-my_list.py
+===============================
+
+This library defines a `MyList` class that inherits from Python's built-in `list` class. 
+
+It includes an additional method, `print_sorted()`, which prints the list in ascending sorted order.
+
+Basic Usage
+===========
+
+Here is an example of using the `MyList` class:
+
+::
+
+    >>> MyList = __import__('1-my_list').MyList
+    >>> my_list = MyList([3, 1, -2, 5, 0])
+    >>> my_list.print_sorted()
+    [-2, 0, 1, 3, 5]
+
+    >>> my_list = MyList([10, 7, 2, 8, 4])
+    >>> my_list.print_sorted()
+    [2, 4, 7, 8, 10]
+
+    >>> my_list = MyList([])
+    >>> my_list.print_sorted()
+    []
+
+Edge Cases
+==========
+
+Empty List
+----------
+
+If the list is empty, `print_sorted()` will simply output an empty list.
+
+::
+
+    >>> my_list = MyList([])
+    >>> my_list.print_sorted()
+    []
+
+Single Element List
+-------------------
+
+If the list has a single element, `print_sorted()` will output that element within a list.
+
+::
+
+    >>> my_list = MyList([42])
+    >>> my_list.print_sorted()
+    [42]
+
+List with Negative and Positive Integers
+----------------------------------------
+
+If the list contains both positive and negative integers, `print_sorted()` will output the list in ascending order, with negative numbers first.
+
+::
+
+    >>> my_list = MyList([3, -5, 0, 4, -2])
+    >>> my_list.print_sorted()
+    [-5, -2, 0, 3, 4]
+
+Duplicate Elements
+-------------------
+
+If the list contains duplicate elements, `print_sorted()` will include all occurrences of the duplicates in the sorted output.
+
+::
+
+    >>> my_list = MyList([3, 5, 3, 1, 5])
+    >>> my_list.print_sorted()
+    [1, 3, 3, 5, 5]
+
+Mix of Positive and Negative Integers
+-------------------------------------
+
+`print_sorted()` can handle a mix of positive and negative numbers and will output the entire list in ascending order.
+
+::
+
+    >>> my_list = MyList([-3, 2, -5, 1, 4, 0])
+    >>> my_list.print_sorted()
+    [-5, -3, 0, 1, 2, 4]
