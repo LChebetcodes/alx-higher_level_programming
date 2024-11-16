@@ -1,17 +1,22 @@
 #!/usr/bin/python3
 """
-Module to define the BaseGeometry class and Rectangle class that inherits from BaseGeometry.
-This module includes the necessary validation and area calculation for the Rectangle class.
+Module to define the BaseGeometry class and
+Rectangle class that inherits from BaseGeometry.
+This module includes the necessary validation and
+area calculation for the Rectangle class.
 """
+
 
 class BaseGeometry:
     """
-    A base class for geometric objects. It provides methods that can be used by other geometric shapes.
+    A base class for geometric objects.
+    It provides methods that can be used by other geometric shapes.
     """
 
     def area(self):
         """
-        Raises an exception if the area method is not implemented in a subclass.
+        Raises an exception if the area method
+        is not implemented in a subclass.
         This is meant to be overridden by subclasses.
         """
         raise Exception("area() is not implemented")
@@ -19,11 +24,11 @@ class BaseGeometry:
     def integer_validator(self, name, value):
         """
         Validates if the provided value is a positive integer.
-        
+
         Args:
         name (str): The name of the variable to be used in error messages.
         value (int): The value to be validated.
-        
+
         Raises:
         TypeError: If value is not an integer.
         ValueError: If value is less than or equal to 0.
@@ -47,12 +52,13 @@ class Rectangle(BaseGeometry):
 
     def __init__(self, width, height):
         """
-        Initializes the Rectangle instance with width and height, both validated as positive integers.
-        
+        Initializes the Rectangle instance with width and height,
+        both validated as positive integers.
+
         Args:
         width (int): The width of the rectangle.
         height (int): The height of the rectangle.
-        
+
         Raises:
         TypeError: If width or height is not an integer.
         ValueError: If width or height is not a positive integer.
@@ -65,7 +71,7 @@ class Rectangle(BaseGeometry):
     def area(self):
         """
         Calculates the area of the rectangle.
-        
+
         Returns:
         int: The area of the rectangle.
         """
@@ -75,7 +81,7 @@ class Rectangle(BaseGeometry):
         """
         Returns a string representation of the rectangle in the format:
         [Rectangle] <width>/<height>
-        
+
         Returns:
         str: The formatted string representation of the rectangle.
         """
