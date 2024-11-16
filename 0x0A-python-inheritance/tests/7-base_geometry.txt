@@ -1,0 +1,129 @@
+# 7-base_geometry.txt
+===============================
+
+How to Use base_geometry.py
+===========================
+
+This library contains a `BaseGeometry` class with basic geometric methods.
+
+BaseGeometry Class
+==================
+
+The `BaseGeometry` class provides a foundation for creating geometric shapes.
+It includes:
+    - `area`: A placeholder method to be implemented by subclasses.
+    - `integer_validator`: A method to validate integer values.
+
+Basic Usage
+===========
+
+Here is an example using the `integer_validator` method:
+
+::
+
+    >>> base_geometry = __import__('7-base_geometry').BaseGeometry
+    >>> bg = base_geometry()  # Instantiate the class
+    >>> bg.integer_validator("my_value", 10)  # No exception
+    >>> bg.integer_validator("my_value", -5)
+    Traceback (most recent call last):
+    ...
+    ValueError: my_value must be greater than 0
+
+Edge Cases
+==========
+
+The `integer_validator` method validates that a given value is a positive integer.
+
+Non-String `name` Argument
+---------------------------
+
+If `name` is not a string, a `TypeError` is raised.
+
+::
+
+    >>> bg.integer_validator(123, 5)
+    Traceback (most recent call last):
+    ...
+    TypeError: name must be a string
+
+Non-Integer `value`
+--------------------
+
+If `value` is not an integer (e.g., `None`, a float, boolean, or string), a `TypeError` is raised.
+
+::
+
+    >>> bg.integer_validator("test", True)
+    Traceback (most recent call last):
+    ...
+    TypeError: name must be an integer
+
+Boundary Values
+---------------
+
+If `value` is 0 or less, a `ValueError` is raised.
+
+::
+
+    >>> bg.integer_validator("boundary", 0)
+    Traceback (most recent call last):
+    ...
+    ValueError: boundary must be greater than 0
+
+    >>> bg.integer_validator("boundary", -1)
+    Traceback (most recent call last):
+    ...
+    ValueError: boundary must be greater than 0
+
+    >>> bg.integer_validator("boundary", 10**100)  # No exception; large integers should pass
+
+Unusual `name` Values
+----------------------
+
+If `name` is an empty string, special characters, or a long string, no exception is raised.
+
+::
+
+    >>> bg.integer_validator("", 1)  # Should pass with no exception
+    >>> bg.integer_validator("!@#$%^&*()_+", 1)  # Should pass with no exception
+    >>> bg.integer_validator("x" * 1000, 1)  # Should pass with no exception
+
+Mutable `value` Types
+----------------------
+
+If `value` is a mutable type like a list or dictionary, a `TypeError` is raised.
+
+::
+
+    >>> bg.integer_validator("mutable", [1, 2, 3])
+    Traceback (most recent call last):
+    ...
+    TypeError: mutable must be an integer
+
+    >>> bg.integer_validator("mutable", {"key": "value"})
+    Traceback (most recent call last):
+    ...
+    TypeError: mutable must be an integer
+
+Subclass of `int`
+-----------------
+
+If `value` is a subclass of `int`, the method passes.
+
+::
+
+    >>> class CustomInt(int): pass
+    >>> custom_value = CustomInt(5)
+    >>> bg.integer_validator("custom", custom_value)  # No exception; CustomInt is a subclass of int
+
+Incorrect `area` Usage
+-----------------------
+
+If `area` is called, it raises an exception every time since it is a placeholder.
+
+::
+
+    >>> bg.area()
+    Traceback (most recent call last):
+    ...
+    Exception: area() is not implemented
