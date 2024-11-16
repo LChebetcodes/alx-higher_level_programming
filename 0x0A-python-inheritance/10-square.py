@@ -45,10 +45,10 @@ class Rectangle(BaseGeometry):
         TypeError: If width or height is not an integer.
         ValueError: If width or height is not a positive integer.
         """
-        self.integer_validator("width", width)
-        self.integer_validator("height", height)
         self.__width = width
         self.__height = height
+        self.integer_validator("width", width)
+        self.integer_validator("height", height)
 
     def area(self):
         """
@@ -88,7 +88,9 @@ class Square(Rectangle):
         """
         self.integer_validator("size", size)  # Validate size using
         # the BaseGeometry method
-        super().__init__(size, size)  # Initialize as a Rectangle with
+        self.__width = size
+        self.__height = size
+        super().__init__(self.__width, self.__height)  # Initialize as a Rectangle with
         # equal width and height
 
     def area(self):
@@ -98,4 +100,4 @@ class Square(Rectangle):
         Returns:
         int: The area of the square.
         """
-        return super().area()  # Use the inherited area() method from Rectangle
+        return self.__width * self.__height  # Use the inherited area() method from Rectangle
