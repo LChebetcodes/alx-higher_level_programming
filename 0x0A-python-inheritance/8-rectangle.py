@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """
-This module defines the class Rectangle that inherits
-from BaseGeometry (7-base_geometry.py)
+This module defines the class Rectangle that inherits from BaseGeometry (7-base_geometry.py)
 """
 
 
@@ -16,7 +15,7 @@ class BaseGeometry:
         This method must be implemented by subclasses.
         """
         raise Exception("area() is not implemented")
-
+    
     def integer_validator(self, name, value):
         """
         Validates that 'value' is a positive integer.
@@ -39,9 +38,8 @@ class Rectangle(BaseGeometry):
     """
     A Rectangle class that inherits from BaseGeometry.
 
-    This class defines a rectangle with specific width and height,
-    both of which must be positive integers.
-    The rectangle also supports calculating its area.
+    This class defines a rectangle with specific width and height, both of which
+    must be positive integers. The rectangle also supports calculating its area.
 
     Attributes:
         __width (int): The width of the rectangle.
@@ -53,11 +51,10 @@ class Rectangle(BaseGeometry):
         area(self):
             Returns the area of the rectangle (width * height).
     """
-
+    
     def __init__(self, width, height):
         """
-        Initializes a new Rectangle instance with
-        the provided width and height.
+        Initializes a new Rectangle instance with the provided width and height.
 
         Args:
             width (int): The width of the rectangle.
@@ -72,7 +69,7 @@ class Rectangle(BaseGeometry):
         """
         self.integer_validator("width", width)  # Validate width
         self.integer_validator("height", height)  # Validate height
-
+        
         # Set width and height as private variables
         self.__width = width
         self.__height = height
