@@ -90,8 +90,8 @@ class Square(Rectangle):
         # the BaseGeometry method
         self.__width = size
         self.__height = size
-        super().__init__(self.__width, self.__height)  # Initialize as a Rectangle with
-        # equal width and height
+        super().__init__(self.__width, self.__height)  # Initialize as a
+        # Rectangle with equal width and height
 
     def area(self):
         """
@@ -100,4 +100,5 @@ class Square(Rectangle):
         Returns:
         int: The area of the square.
         """
-        return self.__width * self.__height  # Use the inherited area() method from Rectangle
+        return self.__width * self.__height  # Use the inherited area()
+        # method from Rectangle
